@@ -1,0 +1,83 @@
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.flavor-text {
+    font-style: italic;
+    text-align: center;
+}
+
+.back-btn {
+    background-color: #fff;
+    border: solid 1px #000;
+    display: block;
+    color: #000;
+    margin: 0 auto;
+    padding: 8px 16px;
+}
+
+    .back-btn:hover, .back-btn:focus {
+        background-image: linear-gradient(to right, #00733e , #0e68ab);
+        color: #fff;
+    }
+
+/* Begin UI Segment Classes*/
+.title-wrapper {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.du-exit-wrapper {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.du-exit {
+    border: solid 1px #000;
+    cursor: pointer;
+    display: inline-block;
+    width: 10em;
+    height: 16.18em;
+    margin: 4px;
+    padding: 8px;
+    text-align: left;
+    user-select: none;
+}
+
+.du-player-bar-wrapper {
+    margin: 0 auto;
+    max-width: 900px;
+}
+/* End UI Segment Classes */
+
+@media screen and (max-width: 770px) {
+    h1 {
+        font-size: 56px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    h1 {
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+    .du-exit {
+        width: 95%;
+        height: fit-content;
+    }
+}
+
+.debug p {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}

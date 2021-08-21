@@ -1,0 +1,22 @@
+<div class='du-title-wrapper'>   
+    <h1>Room {{dungeonDepth}}</h1>
+    <div *ngIf='isFinished'>
+        <h2 class='text-align: center;'>Finished</h2>
+        <button (click)='gotoHome()' type='button' class='back-btn'>Back to Main Menu</button>
+    </div>
+</div>
+<div *ngIf='!isFinished' class='du-exit-wrapper'>
+    <p class='flavor-text'>{{flavorText}}</p>
+    <div *ngFor='let nr of nextRooms; let i = index;' (click)='nextRoom(i)' class='du-exit'>
+        <p style='font-size: 10px;'>
+            id: {{nr.id}}; <br/>type: {{nr.type}}; <br />width: {{nr.width}};
+        </p>
+    </div>
+</div>
+<div class='debug'>
+    <p>
+        Debug: ASCII Minimap:<br />
+        <span *ngFor='let ma of minimapString'>{{ma}}<br /></span>
+    </p>
+</div>
+<div class='du-player-bar-wrapper'></div>

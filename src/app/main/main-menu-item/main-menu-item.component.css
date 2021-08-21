@@ -1,0 +1,16 @@
+.mi-card {
+    border: solid 1px #000;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+}
+
+    .mi-card:hover, .mi-card:focus {
+        background-image: linear-gradient(to right, #00733e , #0e68ab);
+        color: #fff;
+    }
