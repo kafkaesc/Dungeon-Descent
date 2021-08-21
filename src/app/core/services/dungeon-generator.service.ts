@@ -12,24 +12,29 @@ export class DungeonGeneratorService {
 
     initiateDungeon(): IDungeon {
         let dun: IDungeon = {
-            id: this.roll.r(10000, 100000),
+            id: this.roll.r(1000, 10000),
             dungeonMap: [this.generateFirstFloor()]
         };
         return dun;
     }
 
-    nextFloor(prevFloor: IDungeonFloor): IDungeonFloor {
+    nextFloor(): IDungeonFloor {
+        let _id = 0;
+        let _exits: boolean[] = Array.from({length: 3}, bo => bo = false);
+        let _type = '';
         let _width = 0;
         let _rooms: IDungeonRoom[] = [];
-        let _exits: boolean[] = Array.from({length: 3}, i => i = false);
-
+        
         let i = 0;
         while (i < 3) {
+            _id = this.roll.r(1000, 10000)
+            _type = this.generateRoomType();
             _width = this.roll.d(3 - i);
             _exits = this.generateExits(_width),
+
             _rooms.push({
-                id: this.roll.r(10000, 100000),
-                type: this.generateRoomType(),
+                id: _id,
+                type: _type,
                 exits: _exits,
                 width: _width
             });
@@ -37,7 +42,7 @@ export class DungeonGeneratorService {
         }
 
         let df: IDungeonFloor = {
-            id: this.roll.r(10000, 100000),
+            id: this.roll.r(1000, 10000),
             rooms: _rooms,
             tier: 1
         }
@@ -46,7 +51,7 @@ export class DungeonGeneratorService {
 
     private generateFirstFloor(): IDungeonFloor {
         let df: IDungeonFloor = {
-            id: this.roll.r(10000, 100000),
+            id: this.roll.r(1000, 10000),
             rooms: [this.generateFirstRoom()],
             tier: 1
         }
@@ -55,7 +60,7 @@ export class DungeonGeneratorService {
 
     private generateFirstRoom(): IDungeonRoom {
         let dr: IDungeonRoom = {
-            id: this.roll.r(10000, 100000),
+            id: this.roll.r(1000, 10000),
             exits: [ true, true, true ],
             type: this.generateRoomType(),
             width: 3

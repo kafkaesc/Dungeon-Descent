@@ -34,7 +34,7 @@ export class GameComponent implements OnInit {
         this.dungeon = this.dgs.initiateDungeon();
         this.activeFloor = this.dungeon.dungeonMap[0];
         this.activeRoom = this.dungeon.dungeonMap[0].rooms[0];
-        this.nextFloor = this.dgs.nextFloor(this.activeFloor);
+        this.nextFloor = this.dgs.nextFloor();
         this.nextRooms = this.nextFloor.rooms;
         this.dungeonDepth++;
         this.appendMapString(this.activeFloor);
@@ -58,7 +58,7 @@ export class GameComponent implements OnInit {
     }
 
     nextRoom(roomIndex: number): void {
-        let newNextFloor = this.dgs.nextFloor(this.activeFloor);
+        let newNextFloor = this.dgs.nextFloor();
         this.activeFloor = this.nextFloor;
         this.nextFloor = newNextFloor;
         this.nextRooms = this.nextFloor.rooms;

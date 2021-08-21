@@ -6,12 +6,12 @@ import { Injectable } from '@angular/core';
 export class RollService {
     constructor() { }
 
-    /* Return true or false */
+    // Return true or false
     coinflip(): boolean {
         return (this.d(2) - 1) === 1;
     }
 
-    /* Basic dice rolls */
+    // Basic dice rolls
     d2(): number {
         return this.d(2);
     }
