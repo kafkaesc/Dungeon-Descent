@@ -18,6 +18,14 @@
     display: inline-block;
 }
 
+.room.active {
+    background-color: #e96e80;
+}
+
+.room.visited {
+    background-color: #7bb8b7;
+}
+
 .room.room-1 {
     margin: 0;
     padding: 0;

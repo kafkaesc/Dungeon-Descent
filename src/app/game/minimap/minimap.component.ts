@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 import { IDungeon } from 'src/app/core/models/iDungeon';
 
@@ -13,6 +13,6 @@ export class MinimapComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-        console.log('minimap dungeon: ', this.dungeon);
+        
     }
 }

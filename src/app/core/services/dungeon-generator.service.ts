@@ -18,6 +18,14 @@ export class DungeonGeneratorService {
         return dun;
     }
 
+    seededFloor(seed: any): void {
+
+    }
+
+    seededRoom(seed: any): void {
+
+    }
+
     nextFloor(): IDungeonFloor {
         let _id = 0;
         let _exits: boolean[] = Array.from({length: 3}, bo => bo = false);
@@ -34,8 +42,10 @@ export class DungeonGeneratorService {
 
             _rooms.push({
                 id: _id,
+                active: false,
                 type: _type,
                 exits: _exits,
+                visited: false,
                 width: _width
             });
             i += _width;
@@ -61,8 +71,10 @@ export class DungeonGeneratorService {
     private generateFirstRoom(): IDungeonRoom {
         let dr: IDungeonRoom = {
             id: this.roll.r(1000, 10000),
+            active: true,
             exits: [ true, true, true ],
             type: this.generateRoomType(),
+            visited: false,
             width: 3
         };
         return dr;

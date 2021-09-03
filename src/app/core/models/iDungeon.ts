@@ -15,8 +15,10 @@ export interface IDungeonFloorSeed {
 
 export interface IDungeonRoom {
     id: number,
+    active: boolean,
     roomName?: string,
     exits: boolean[],
     type: string,
+    visited: boolean,
     width: number
 };

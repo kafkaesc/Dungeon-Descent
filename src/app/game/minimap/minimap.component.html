@@ -1,29 +1,10 @@
 <div class='room-wrapper'>
     <div *ngFor='let df of dungeon.dungeonMap'>
-        <div *ngFor='let dr of df.rooms'>
-            <span>{{dr.width}} </span>
-            <div class='rom room-{{dr.width}}'></div>
+        <div class='room-row'>
+            <div *ngFor='let dr of df.rooms' 
+                 [class.active]='dr.active'
+                 [class.visited]='dr.visited'
+                 class='room room-{{dr.width}}'></div>
         </div>
     </div>
-    <!--
-    <div class='room-row'>
-        <div class='room room-3'></div>
-    </div>
-    <div class='room-row'>
-        <div class='room room-1'></div>
-        <div class='room room-2'></div>
-    </div>
-    <div class='room-row'>
-        <div class='room room-1'></div>
-        <div class='room room-1'></div>
-        <div class='room room-1'></div>
-    </div>
-    <div class='room-row'>
-        <div class='room room-2'></div>
-        <div class='room room-1'></div>
-    </div>
-    <div class='room-row'>
-        <div class='room room-3'></div>
-    </div>
-    -->
 </div>

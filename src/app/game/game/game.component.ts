@@ -37,6 +37,7 @@ export class GameComponent implements OnInit {
         this.nextFloor = this.dgs.nextFloor();
         this.nextRooms = this.nextFloor.rooms;
         this.dungeonDepth++;
+        this.setActiveRoom();
         this.appendMapString(this.activeFloor);
     }
 
@@ -59,14 +60,28 @@ export class GameComponent implements OnInit {
 
     nextRoom(roomIndex: number): void {
         let newNextFloor = this.dgs.nextFloor();
+        this.activeRoom.visited = true;
+        this.activeRoom = this.nextFloor.rooms[roomIndex];
         this.activeFloor = this.nextFloor;
         this.nextFloor = newNextFloor;
         this.nextRooms = this.nextFloor.rooms;
+        this.setActiveRoom();
+
+        this.dungeon.dungeonMap.unshift(this.activeFloor);
         this.dungeonDepth++;
 
         if (this.dungeonDepth === 10)
             this.isFinished = true;
  
         this.appendMapString(this.activeFloor);
+    }
+
+    setActiveRoom(): void {
+        this.dungeon.dungeonMap.forEach(df => {
+            df.rooms.forEach(dr => {
+                dr.active = false;
+            });
+        });
+        this.activeRoom.active = true;
     }
 }
